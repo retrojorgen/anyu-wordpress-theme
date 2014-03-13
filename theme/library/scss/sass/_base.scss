@@ -1,0 +1,32 @@
+// For making a keyframe animation
+@mixin keying($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+$otherThanPhone: "only screen and (min-width : 602px)";
+$ipadPortrait: "only screen and (min-width : 815px)";
+$ipadLandscape: "only screen and (min-width : 1000px)";
+$desktop: "only screen and (min-width : 1025px)";
+$megaDesktop: "only screen and (min-width : 1100px)";
+
+@import url(http://fonts.googleapis.com/css?family=Gilda+Display);
+
+
+
+$regularFont : 'Gilda Display';
+$thinFont : 'Gilda Display';
+
+div, li, ul,section, span, img,h1,h2,h3,h4,p,a {
+  @include box-sizing(border-box);
+}
