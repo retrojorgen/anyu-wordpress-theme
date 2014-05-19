@@ -33,37 +33,28 @@
 									</h1>
 							<?php } ?>
 
-							<ul class="articles-list" role="main">
-							<?php if (have_posts()) : while (have_posts()) : the_post(); ?><li class="article-container">
-									<article id="post-<?php the_ID(); ?>" <?php post_class( 'article' ); ?> role="article">
-							            <div class="category"><?php echo get_the_category_list($post_id, ', '); ?></div>
-										<header class="article-header">
-											<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-												<div class="main-image-container">
-										 			<?php echo get_the_post_thumbnail( $post_id, 'medium', $attr ); ?> 
-												</div>
-											</a>
 
-											<h1 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-											<p class="byline vcard"><?php
-												printf( __( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), bones_get_the_author_posts_link());
-											?></p>
+							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+									<div class="post-image-article" style="background-image: url(<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' )[0]; ?>)">										
+									</div>
+									<h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
+									<section class="main-article">
 
-										</header>
+										<article id="post-<?php the_ID(); ?>" <?php post_class('main-article'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-										<section class="entry-content clearfix">
-											<?php the_excerpt(); ?><p><a href="<?php the_permalink() ?>">Les mer..</a>
-										</section>
+											<section class="entry-content clearfix" itemprop="articleBody">
+											
+												<?php the_content(); ?>
+											</section>
 
-										<footer class="article-footer">
-											<p class="tags"><?php the_tags( '<span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '' ); ?></p>
-										</footer>
+											<footer class="article-footer">
+												<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
 
-										<?php // comments_template(); // uncomment if you want to use them ?>
+											</footer>
 
-									</article>
-								</li><?php endwhile; ?>
-							</ul>
+
+										</article>
+								<?php endwhile; ?>
 
 									<?php if ( function_exists( 'bones_page_navi' ) ) { ?>
 										<?php bones_page_navi(); ?>
@@ -90,8 +81,9 @@
 										</footer>
 									</article>
 
+									
+
 							<?php endif; ?>
 							</section>
-					<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

@@ -12,9 +12,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 		<title><?php if ( is_category() ) {
-	echo ''; single_cat_title(); echo '&quot; | '; bloginfo( 'name' );
+	echo ''; single_cat_title(); echo ' | '; bloginfo( 'name' );
 } elseif ( is_tag() ) {
-	echo ''; single_tag_title(); echo '&quot; | '; bloginfo( 'name' );
+	echo ''; single_tag_title(); echo ' | '; bloginfo( 'name' );
 } elseif ( is_archive() ) {
 	wp_title(''); echo ' Archive | '; bloginfo( 'name' );
 } elseif ( is_search() ) {
@@ -30,6 +30,9 @@
 } ?></title>
 
 		<?php // mobile meta (hooray!) ?>
+		<meta name="description" content="Anyu klinikken, senter for helse og livsmestring i lørenskog">
+		<meta name="keywords" content="lørenskog, akupunktur, tuinamassasje, muskelmassasje, qigong, yoga, tankefeltterapi, rosenterapi, anyu klinikken">
+		<meta name="author" content="Ildiko Balog">
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -43,6 +46,8 @@
 		<?php // or, set /favicon.ico for IE10 win ?>
 		<meta name="msapplication-TileColor" content="#f01d4f">
 		<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/win8-tile-icon.png">
+
+
 
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
@@ -68,22 +73,11 @@
     <header class="main-header" role="banner">
 		<nav class="main-navigation" role="navigation">
 			<a href="/" class="anyu-logo"></a>
+			<button class="mobile-menu-toggle"></button>
 			<?php bones_main_nav(); ?>
 			<?php //get_search_form(); ?>
 		</nav>
 	</header>
-	
-	<div class="hero">
 
-		<div class="hero-content">
-			<h1>Senter for helse og livsmestring
-			<div class="dandelion-1"></div>
-			<div class="dandelion-2"></div>
-			<div class="dandelion-3"></div>
-			<div class="dandelion-4"></div>
-			</h1>
-		</div>
-	</div>
-	<section class="articles">
 		
 
