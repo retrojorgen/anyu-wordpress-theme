@@ -70,10 +70,10 @@
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 
-    <header class="main-header" role="banner">
-		<nav class="main-navigation" role="navigation">
-			<a href="/" class="anyu-logo"></a>
-			<button class="mobile-menu-toggle"></button>
+    <header class="main-header <?php if ( !is_front_page() ) echo 'inverse'; ?>" role="banner">
+		<nav class="main-navigation <?php if ( !is_front_page() ) echo 'inverse'; ?>" role="navigation">
+			<a href="/" class="anyu-logo <?php if ( !is_front_page() ) echo 'inverse'; ?>"></a>
+			<button class="mobile-menu-toggle <?php if ( !is_front_page() ) echo 'inverse'; ?>"></button>
 			<?php bones_main_nav(); ?>
 			<?php //get_search_form(); ?>
 		</nav>

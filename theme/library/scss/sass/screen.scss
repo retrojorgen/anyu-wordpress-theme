@@ -18,7 +18,7 @@ body,html {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   overflow-x: hidden;
 }
 
@@ -30,7 +30,7 @@ a {
 
 .main-header {
   width: 100%;
-  position: fixed;
+  position: absolute;
   top: 0;
   height: 50px;
   display: block;
@@ -47,18 +47,18 @@ a {
     &.active {
       .main-navigation {
         .anyu-logo {
-          height: 49px;
+          /**
+          height: 60px;
+          width: 140px;
           margin: 0 auto 0 auto;
-          background-position: 0px -73px;
+          background-position: 0 0;
           @include transition(all 200ms linear);
+          **/
         }
         ul {
           li {
             a {
               @media #{$otherThanPhone} {
-                padding-top: 16px;
-                padding-bottom: 0;
-                @include transition(all 200ms linear);
               }
             }
           }
@@ -77,21 +77,56 @@ a {
     max-width: 1100px;
     margin: 0 auto;
     text-align: right;
+    &.inverse {
+      ul {
+        li {
+          &:hover {
+            a {
+              color: lighten(#382314, 10%);
+            }
+          }
+          a {
+            color: #382314;
+          }
+          &.menu-item-has-children {
+            .sub-menu {
+              li {
+                a {
+                  color: #382314;
+                }
+              }
+            }
+            &:hover {
+              .sub-menu {
+                li {
+                  a {
+                    color: #382314;
+                    &:hover {
+                      color: lighten(#382314, 10%);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 
     .mobile-menu-toggle {
       background: {
         image: url(../images/menu.svg);
         size: 80%;
-        position: 10px 10px;
+        position: 5px 10px;
         repeat: no-repeat;
       }
-        position: absolute;
-        right: 10px;
+        position: fixed;
+        right: 0;
         top: 0;
-        width: 35px;
+        width: 20px;
         height: 50px;
         border: 0;
-        padding: 0;
+        padding: 20px;
         background-color: transparent;
         margin: 0;
         @media #{$otherThanPhone} {
@@ -100,23 +135,31 @@ a {
     }
 
     .anyu-logo {
+      position: absolute;
       vertical-align: top;
       display: block;
       margin: 0 8px 0 0;
-      width: 160px;
-      height: 50px;
+      width: 164px;
+      left: 50%;
+      margin-left: -82px;
+      height: 64px;
       background: {
         image: url(../images/anyu-logo.svg);
-        size: 110px;
+        size: 100%;
         repeat: no-repeat;
         position: 0 0;
+      }
+      &.inverse {
+        background-image: url(../images/anyu-logo-brown.svg);
       }
       @include transition(all 200ms linear);
       @media #{$ipadPortrait} {
         height: 66px;
-        margin: 23px auto 8px auto;
+        margin: 8px auto 8px auto;
         display: inline-block;
-        background-size: 160px;
+        width: 163px;
+        height: 80px;
+        background-size: 100%;
         position: absolute;
         left: 0;
       }
@@ -137,10 +180,10 @@ a {
       }
 
       @media #{$ipadPortrait} {
-        text-align: left;
+        text-align: right;
+        width: 100%;
       }
       li {
-        position: relative;
         display: block;
         font-size: 15px;
         background-color: $mainColor;
@@ -179,7 +222,7 @@ a {
           list-style: none;
           padding: 10px;
           height: auto;
-          text-align: center;
+          text-align: right;
           
 
           @media #{$otherThanPhone} {
@@ -187,7 +230,10 @@ a {
             width: 100%;
             padding: 0;
             margin: 0 0 0 0;
-            position: relative;
+            position: absolute;
+            top: 69px;
+            right: 0;
+            width: 100%;
             display: inline-block;
             height: 0;
             overflow-y: hidden;
@@ -199,7 +245,7 @@ a {
             text-align: left;
             @media #{$otherThanPhone} {
               text-align: center;
-              display: block;
+              display: inline-block;
               background-color: transparent;
 
             }
@@ -230,11 +276,11 @@ a {
                 @include transition(all 500ms linear);
                 li {
                   a {
-                    color: rgba(153,143,122,1);
+                    color: white;
                     @include transition(color 400ms linear);
                     @media #{$desktop} {
                       &:hover {
-                        color: rgba(153,143,122,0.6);
+                        color: white;
                       }
                     }
                   }
@@ -261,14 +307,14 @@ a {
           @include transition(all 200ms linear);
 
           @media #{$ipadPortrait} {
-            padding: 50px 10px 10px 10px;
+            padding: 30px 10px 30px 10px;
             font-family: $curlyFont;
             font-size: 16px;
             color: #efeee6;
           }
 
           @media #{$ipadLandscape} {
-            padding: 50px 10px 10px 10px;
+            padding: 30px 10px 30px 10px;
 
           }
         }
@@ -286,6 +332,7 @@ a {
   max-width: 100%;
   overflow: hidden;
   position: relative;
+  min-height: 480px;
   background: {
     image: url(../images/hovedbilde.jpg);
     repeat: no-repeat;
@@ -327,23 +374,24 @@ a {
       color: white;
 
       margin: 30px auto 0 auto;
-      @include border-radius(15px);
+      @include border-radius(10px);
     }
 
     h1 {
       display: inline-block;
       width: 100%;
       text-align: center;      
-      font-size: 32px;
+      font-size: 44px;
       text-transform: uppercase;
-      font-weight: 700;
-      font-family: $cursiveFont;
+      font-weight: 400;
+      font-family: $bevan;
       padding: 0;
       margin-bottom: 5px;
       color: white;
-      text-shadow: 0 0 20px rgba(0,0,0,0.3);
+      //text-shadow: 0 0 20px rgba(0,0,0,0.3);
       .header-highlight {
         color: #efc99a;
+        font-weight: 400;
       }
 
       @media #{$otherThanPhone} {
@@ -602,7 +650,7 @@ a {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 200px;
+    height: 380px;
     width: 100%;
     @include background-image(linear-gradient(transparent, #faf4eb));
   }
@@ -629,6 +677,8 @@ a {
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
+  position: relative;
+  z-index: 100;
 
 
   article {
@@ -658,7 +708,6 @@ a {
       left: 0;
       height: 500px;
       width: 100%;
-      background-color: fade-out($sandColor, 0.2);
       z-index: 60;
     }
 
@@ -1040,14 +1089,14 @@ a {
   padding: 10px;
   display: inline-block;
   font-family: $cursiveFont;
-  letter-spacing: 2px;
+  letter-spacing: 0px;
   text-transform: uppercase;
   @include border-bottom-left-radius(5px);
   @include border-bottom-right-radius(5px);
   background-color: fade-out(#544837, 0.9);
   color: white;
   @media #{$otherThanPhone} {
-
+    letter-spacing: 2px;
   }
 }
 
