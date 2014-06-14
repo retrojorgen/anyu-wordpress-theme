@@ -14,7 +14,7 @@ $sandColor: #faf4eb;
 body,html {
   background-color: #faf4eb;
   color: #3f3c36;
-  font-family: $regularFont;
+  font-family: $bevan;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -24,7 +24,7 @@ body,html {
 
 a {
  color: #2d2923;
- font-family: $regularFont;
+ font-family: $bevan;
  text-decoration: none;
 }
 
@@ -38,6 +38,16 @@ a {
   background-color: transparent;
   z-index: 1000;
   opacity: 1;
+  @include transition(all 600ms linear);
+
+  &.background-toggle {
+    @include transition(all 600ms linear);
+    background-color: #532D12;
+    &.inverse {
+      background-color: white;
+    }
+  }
+
 
   @media #{$ipadPortrait} {
     display: block;
@@ -77,8 +87,23 @@ a {
     max-width: 1100px;
     margin: 0 auto;
     text-align: right;
-    &.inverse {
-      ul {
+
+    #menu-main-menu {
+      border-radius: 40px;
+      li {
+        a {
+          color: #382314;
+          @media #{$otherThanPhone} {
+            color: white;
+          }
+        }
+        .sub-menu {
+          li {
+
+          }
+        }
+      }
+      &.inverse {
         li {
           &:hover {
             a {
@@ -119,7 +144,13 @@ a {
         size: 80%;
         position: 5px 10px;
         repeat: no-repeat;
+        color: #532D12;
       }
+        &.inverse {
+          background-color: #532D12;
+          @include transition(all 200ms linear);
+        }
+
         position: fixed;
         right: 0;
         top: 0;
@@ -127,8 +158,8 @@ a {
         height: 50px;
         border: 0;
         padding: 20px;
-        background-color: transparent;
         margin: 0;
+        z-index: 100;
         @media #{$otherThanPhone} {
           display: none;
         }
@@ -143,11 +174,16 @@ a {
       left: 50%;
       margin-left: -82px;
       height: 64px;
+      z-index: 1000;
+      cursor: pointer;
       background: {
-        image: url(../images/anyu-logo.svg);
+        image: url(../images/anyu-logo-brown.svg);
         size: 100%;
         repeat: no-repeat;
         position: 0 0;
+      }
+      @media #{$otherThanPhone} {
+        background-image: url(../images/anyu-logo.svg);
       }
       &.inverse {
         background-image: url(../images/anyu-logo-brown.svg);
@@ -157,7 +193,7 @@ a {
         height: 66px;
         margin: 8px auto 8px auto;
         display: inline-block;
-        width: 163px;
+        width: 150px;
         height: 80px;
         background-size: 100%;
         position: absolute;
@@ -172,10 +208,13 @@ a {
       margin-top: 0px;
       margin: 0;
       display: none;
-      padding: 0;
+      padding: 80px 10px 10px 10px;
       text-align: center;
+      background-color: white;
       @include transition(all 200ms linear);
       @media #{$otherThanPhone} {
+        background-color: transparent;
+        padding: 0;
         display: inline-block;
       }
 
@@ -186,7 +225,6 @@ a {
       li {
         display: block;
         font-size: 15px;
-        background-color: $mainColor;
         width: 100%;
         text-transform: uppercase;
         text-align: left;
@@ -197,6 +235,7 @@ a {
         @include transition(all 300ms linear);
 
         @media #{$otherThanPhone} {
+          background-color: $mainColor;
           padding: 0;
           background-color: transparent;
           display: inline-block;
@@ -210,6 +249,13 @@ a {
             a {
               color: white;
               text-decoration: underline;
+            }
+          }
+        }
+        &#menu-item-6 {
+          @media #{$otherThanPhone} {
+            .sub-menu {
+              padding-right: 80px;
             }
           }
         }
@@ -269,7 +315,7 @@ a {
         @media #{$otherThanPhone} {
           &.menu-item-has-children {
             &:hover {
-              margin-bottom: 10px;
+              margin-bottom: 30px;
               @include transition(all 500ms linear);
               .sub-menu {
                 height: auto;
@@ -308,8 +354,9 @@ a {
 
           @media #{$ipadPortrait} {
             padding: 30px 10px 30px 10px;
-            font-family: $curlyFont;
-            font-size: 16px;
+            font-family: $bevan;
+            font-size: 15px;
+            letter-spacing: 1px;
             color: #efeee6;
           }
 
@@ -342,6 +389,22 @@ a {
 
   @media #{$otherThanPhone} {
     margin-top: 0;
+    height: 1024px;
+    background: {
+      size: 250%;
+      position: top center;
+    }
+  }
+  @media #{$ipadLandscape} {
+    margin-top: 0;
+    height: 768px;
+    background: {
+      size: 150%;
+      position: top center;
+    }
+  }
+  @media #{$desktop} {
+    margin-top: 0;
     height: 800px;
     background: {
       size: 100%;
@@ -361,48 +424,82 @@ a {
     text-align: center;
     
     @media #{$otherThanPhone} {
+      padding-top: 120px;
+    }
+
+    @media #{$ipadLandscape} {
+      padding-top: 80px;
+    }
+
+    @media #{$desktop} {
       padding-top: 60px;
     }
+
+    .facebook-like {
+      position: relative;
+      margin: 0 auto;
+      padding: 10px;
+      display: inline-block;
+      font-family: $bevan;
+      letter-spacing: 0px;
+      text-transform: uppercase;
+      @include border-bottom-left-radius(5px);
+      @include border-bottom-right-radius(5px);
+      color: white;
+      margin-top: 20px;
+      @media #{$otherThanPhone} {
+        margin: 0 auto;
+        letter-spacing: 2px;
+      }
+    }
+
 
     .hero-online-booking {
       display: block;
       padding: 10px;
       border: 1px solid white;
-      width: 300px;
+      width: 80%;
+      max-width: 300px;
       font-size: 20px;
       text-transform: uppercase;
       color: white;
 
       margin: 30px auto 0 auto;
       @include border-radius(10px);
+      @include transition(all 200ms linear);
+      &:hover {
+        background-color: white;
+        color: #532D12;
+        border-color: white;
+        @include transition(all 200ms linear);
+      }
     }
 
     h1 {
       display: inline-block;
       width: 100%;
-      text-align: center;      
-      font-size: 44px;
-      text-transform: uppercase;
-      font-weight: 400;
+      text-align: center;
+      font-size: 34px;
+      font-weight: 500;
       font-family: $bevan;
       padding: 0;
       margin-bottom: 5px;
       color: white;
-      //text-shadow: 0 0 20px rgba(0,0,0,0.3);
       .header-highlight {
-        color: #efc99a;
-        font-weight: 400;
+        
+        color: white;
+        font-weight: 800;
       }
 
       @media #{$otherThanPhone} {
-        margin-bottom: auto;
-        font-size: 60px;
+        margin-bottom: 30px;
+        font-size: 80px;
         //letter-spacing: 3px;
         padding: 20px 20px 20px 20px;
       }
       @media #{$megaDesktop} {
         padding: 100px 0 0 0;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
       }
     }
     @media #{$ipadPortrait} {
@@ -444,8 +541,10 @@ a {
   padding-left: 10px;
   padding-right: 10px;
   margin-top: 0;
+  @media #{$otherThanPhone} {
+    padding: 20px 0 20px 0;
+  }
   @media #{$megaDesktop} {
-    padding: 0;
     width: 1100px;
     margin: 0 auto 0 auto;
   }
@@ -454,6 +553,7 @@ a {
   .main-article-frontpage {
     display: block;
     width: 100%;
+    padding: 0 20px 0 20px;
     h2 {
       font-size: 20px;
       margin-bottom: 0;
@@ -516,111 +616,36 @@ a {
 
     .article-container {
       display: inline-block;
-      width: 49%;
+      width: 50%;
       vertical-align: top;
-      padding: 10px;
+      height: 350px;
+      overflow: hidden;
+      position: relative;
+      img {
+        max-width: 300%;
+        margin-left: -100%;
+      }
+      h2 {
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255,255,255,0.6);
+        margin: 0;
+        padding: 10px;
+      }
       @media #{$otherThanPhone} {
-        width: 46%;
+        width: 50%;
       }
       overflow-x: hidden;
       &:nth-child(odd) {
-        margin-right: 1%;
         @media #{$otherThanPhone} {
-          margin-right: 4%;
         }
       }
 
       @media #{$ipadPortrait} {
-        width: 23%;
-        margin-right: 1%;
-        &:nth-child(odd) {
-          margin-right: 1%;
-        }
-        &:nth-child(4n+4) {
-          margin-right: 0;
-        }
-      }
-      article {
-        @include box-shadow(0 1px 1px 1px rgba(0,0,0,0.1));
-        background-color: white;
-        padding: 8px;
-        position: relative;
-        @include border-radius(4px);
-        @media #{$otherThanPhone} {        
-          padding: 14px;
-        }
-
-        .size-full {
-          width: 95%;
-          position: relative;
-          padding: 0;
-          background: none;
-          @include border-radius(0);
-          @include box-shadow(0 0 0 0 rgba(0,0,0,0));
-        }
-
-        h2 {
-          font-size: 18px;
-          text-align: center;
-          margin: 0;
-          font-weight: normal;
-          color: #705c3d;
-          padding: 10px 10px 10px 10px;
-          @media #{$otherThanPhone} {
-            font-size: 22px;
-          }
-        }
-        p {
-          margin: 0;
-          font-size: 16px;
-          line-height: 23px;
-          img {
-            width: 95%;
-            margin-top: 0;
-            margin-bottom: 0;
-          }
-        }
-        a {
-          display: block;
-          color: #544837;
-          text-decoration: underline;
-          position: relative;
-          &:after {
-           position: absolute;
-            bottom: 2.5%;
-            height: 40px;
-            background-color: rgba(0,0,0,0.2);
-            width: 95%;
-            text-align: center;
-            left: 2.5%;
-            z-index: 100;
-            color: white;
-            padding-top: 18px;
-            content: "Les mer om behandlingen..";
-            opacity: 0;
-            @include transition(all 400ms linear);
-          }
-          @media #{$otherThanPhone} {
-            &:hover {
-              &:after {
-                opacity: 1;
-                @include transition(all 400ms linear);
-              }
-            }
-          }
-        }
-
-        .post-image {
-          display: none;
-        }
-        &:after {
-         visibility: hidden;
-         display: block;
-         font-size: 0;
-         content: " ";
-         clear: both;
-         height: 0;
-        }
+        width: 25%;
       }
     }
   }
@@ -637,9 +662,13 @@ a {
   overflow-y: hidden;
   background-size: 185% auto;
   background-repeat: no-repeat;
-  
   @media #{$otherThanPhone} {
+    max-height: 300px;
+    background-size: 150%;
+  }
+  @media #{$desktop} {
     height: 500px;
+    max-height: 500px;
     background-size: 100% auto;
   }
   img {
@@ -652,7 +681,9 @@ a {
     left: 0;
     height: 380px;
     width: 100%;
-    @include background-image(linear-gradient(transparent, #faf4eb));
+    @media #{$desktop} {
+      @include background-image(linear-gradient(transparent, #faf4eb));
+    }
   }
 }
 
@@ -665,7 +696,7 @@ a {
   margin-bottom: 10px;
   z-index: 80;
   text-transform: uppercase;
-  font-family: $curlyFont;
+  font-family: $bevan;
   color: #382314;
   @media #{$otherThanPhone} {
     font-size: 60px;
@@ -715,6 +746,7 @@ a {
       width: 47%;
       position: relative;
       z-index: 100;
+      border-radius: 50%;
       @media #{$otherThanPhone} {
         width: auto;
         max-width: 400px;
@@ -843,7 +875,7 @@ a {
 
 
 .footer {
-  background-color: $mainColor;
+  background-color: #2B1C0D;
   position: relative;
   .footer-container {
     max-width: 100%;
@@ -887,7 +919,7 @@ a {
         font-family: verdana;
         line-height: 20px;
         @media #{$otherThanPhone} {
-          font-family: $regularFont;
+          font-family: $bevan;
           line-height: 24px;
           font-size: 16px;
         }
@@ -1080,23 +1112,6 @@ a {
     opacity: 0;
     left:60%;
     top: 90%;
-  }
-}
-
-.facebook-like {
-  position: relative;
-  margin: 0 auto;
-  padding: 10px;
-  display: inline-block;
-  font-family: $cursiveFont;
-  letter-spacing: 0px;
-  text-transform: uppercase;
-  @include border-bottom-left-radius(5px);
-  @include border-bottom-right-radius(5px);
-  background-color: fade-out(#544837, 0.9);
-  color: white;
-  @media #{$otherThanPhone} {
-    letter-spacing: 2px;
   }
 }
 
