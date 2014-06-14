@@ -20,6 +20,10 @@ body,html {
   width: 100%;
   min-height: 100%;
   overflow-x: hidden;
+  .mobile-hide {
+    overflow: hidden;
+    height: 100px;
+  }
 }
 
 a {
@@ -29,346 +33,149 @@ a {
 }
 
 .main-header {
-  width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
-  height: 50px;
-  display: block;
-  left: 0;
-  background-color: transparent;
+  width: 100%;
   z-index: 1000;
-  opacity: 1;
-  @include transition(all 600ms linear);
-
-  &.background-toggle {
-    @include transition(all 600ms linear);
-    background-color: #532D12;
-    &.inverse {
-      background-color: white;
-    }
+  height: 80px;
+  text-transform: uppercase;
+  background-color: white;
+  @include transition(background-color 1s);
+  &.highlight-menu {
+    background-color: rgba(255,255,255,0.6);
+    @include transition(background-color 1s);
+  }
+  @media #{$bigMenu} {
+    background-color: transparent;
   }
 
-
-  @media #{$ipadPortrait} {
-    display: block;
-    position: fixed;
-    height: auto;
-    
-    &.active {
-      .main-navigation {
-        .anyu-logo {
-          /**
-          height: 60px;
-          width: 140px;
-          margin: 0 auto 0 auto;
-          background-position: 0 0;
-          @include transition(all 200ms linear);
-          **/
-        }
-        ul {
-          li {
-            a {
-              @media #{$otherThanPhone} {
-              }
-            }
-          }
-        }
-      }
+  .mobile-menu-toggle {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    background: {
+      image: url(../images/hamburger.png);
+      repeat: no-repeat;
+      size: 100%;
+      color: transparent;
+    }
+    z-index: 100001;
+    @media #{$bigMenu} {
+      display: none;
     }
   }
-
 
 
 
   .main-navigation {
-    display: block;
     position: relative;
-    width: 100%;
     max-width: 1100px;
     margin: 0 auto;
-    text-align: right;
-
-    #menu-main-menu {
-      border-radius: 40px;
-      li {
-        a {
-          color: #382314;
-          @media #{$otherThanPhone} {
-            color: white;
-          }
-        }
-        .sub-menu {
-          li {
-
-          }
-        }
-      }
-      &.inverse {
-        li {
-          &:hover {
-            a {
-              color: lighten(#382314, 10%);
-            }
-          }
-          a {
-            color: #382314;
-          }
-          &.menu-item-has-children {
-            .sub-menu {
-              li {
-                a {
-                  color: #382314;
-                }
-              }
-            }
-            &:hover {
-              .sub-menu {
-                li {
-                  a {
-                    color: #382314;
-                    &:hover {
-                      color: lighten(#382314, 10%);
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .mobile-menu-toggle {
-      background: {
-        image: url(../images/menu.svg);
-        size: 80%;
-        position: 5px 10px;
-        repeat: no-repeat;
-        color: #532D12;
-      }
-        &.inverse {
-          background-color: #532D12;
-          @include transition(all 200ms linear);
-        }
-
-        position: fixed;
-        right: 0;
-        top: 0;
-        width: 20px;
-        height: 50px;
-        border: 0;
-        padding: 20px;
-        margin: 0;
-        z-index: 100;
-        @media #{$otherThanPhone} {
-          display: none;
-        }
-    }
-
     .anyu-logo {
       position: absolute;
-      vertical-align: top;
-      display: block;
-      margin: 0 8px 0 0;
-      width: 164px;
-      left: 50%;
-      margin-left: -82px;
-      height: 64px;
-      z-index: 1000;
-      cursor: pointer;
+      top: -70px;
+      left: 0;
+      width: 170px;
+      height: 170px;
       background: {
+        //color: #35260a;
         image: url(../images/anyu-logo-brown.svg);
-        size: 100%;
+        size: 94%;
+        position: 14px 70px;
         repeat: no-repeat;
-        position: 0 0;
       }
-      @media #{$otherThanPhone} {
-        background-image: url(../images/anyu-logo.svg);
-      }
-      &.inverse {
-        background-image: url(../images/anyu-logo-brown.svg);
-      }
-      @include transition(all 200ms linear);
-      @media #{$ipadPortrait} {
-        height: 66px;
-        margin: 8px auto 8px auto;
-        display: inline-block;
-        width: 150px;
-        height: 80px;
-        background-size: 100%;
-        position: absolute;
-        left: 0;
-      }
+      @include border-radius(50%);
     }
 
-    ul {
-      position: relative;
-      vertical-align: top;
+    .top-nav {
       list-style: none;
-      margin-top: 0px;
       margin: 0;
-      display: none;
-      padding: 80px 10px 10px 10px;
-      text-align: center;
-      background-color: white;
-      @include transition(all 200ms linear);
-      @media #{$otherThanPhone} {
-        background-color: transparent;
-        padding: 0;
-        display: inline-block;
+      padding: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      overflow: hidden;
+      border-top: 80px solid transparent;
+      @include transition(height 200 ms);
+
+      &.mobile-show {
+        height: 100%;
+        overflow: auto;
+        @include transition(height 200 ms);
       }
 
-      @media #{$ipadPortrait} {
+      @media #{$bigMenu} {
+        height: 100%;
+        position: relative;
         text-align: right;
-        width: 100%;
+        background-color: transparent;
+        border-top: 0;
+        overflow: visible;
       }
-      li {
+
+      .menu-item {
         display: block;
-        font-size: 15px;
-        width: 100%;
-        text-transform: uppercase;
-        text-align: left;
-        padding-left: 10px;
-        border-bottom: 0px solid #928059;
         vertical-align: top;
-        margin-bottom: 0;
-        @include transition(all 300ms linear);
-
-        @media #{$otherThanPhone} {
-          background-color: $mainColor;
-          padding: 0;
-          background-color: transparent;
+        padding: 20px 10px 20px 10px;
+        cursor: pointer;
+        background-color: white;
+        @media #{$bigMenu} {
           display: inline-block;
-          width: auto;
-          max-width: 238px;
-          text-align: center;
+          background-color: transparent;
         }
 
-        @media #{$desktop} {
-          &:hover {
-            a {
-              color: white;
-              text-decoration: underline;
-            }
-          }
-        }
-        &#menu-item-6 {
-          @media #{$otherThanPhone} {
-            .sub-menu {
-              padding-right: 80px;
-            }
-          }
+        a {
+          color: #2B1C0D;
+          font-family: $bevan;
+          letter-spacing: 1px;
+          font-size: 15px;
         }
 
-        .sub-menu {
-          position: relative;
-          width: 100%;
-          margin: 0 0 0 0;
-          display: block;
-          list-style: none;
-          padding: 10px;
-          height: auto;
-          text-align: right;
-          
-
-          @media #{$otherThanPhone} {
-            background-color: transparent;
-            width: 100%;
-            padding: 0;
-            margin: 0 0 0 0;
-            position: absolute;
-            top: 69px;
-            right: 0;
-            width: 100%;
-            display: inline-block;
-            height: 0;
-            overflow-y: hidden;
-            @include transition(all 500ms linear);
-          }
-
-          li {
-            display: inline-block;
-            text-align: left;
-            @media #{$otherThanPhone} {
-              text-align: center;
-              display: inline-block;
-              background-color: transparent;
-
-            }
-            a {
-              font-weight: normal;
-              text-decoration: none;
-              text-align: left;
-              color: fade-out(white, 0.5);
-
-              @include transition(color 400ms linear);
-
-              @media #{$otherThanPhone} {
-                text-align: center;
-                color: rgba(84,72,55,0);
-                padding: 5px 20px 14px 20px;
-              }
-            }
-          }
-        }
-
-        @media #{$otherThanPhone} {
-          &.menu-item-has-children {
-            &:hover {
-              margin-bottom: 30px;
-              @include transition(all 500ms linear);
-              .sub-menu {
-                height: auto;
-                @include transition(all 500ms linear);
-                li {
-                  a {
-                    color: white;
-                    @include transition(color 400ms linear);
-                    @media #{$desktop} {
-                      &:hover {
-                        color: white;
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-
-        &:last-of-type {
+        &#menu-item-9 {
           a {
             font-weight: bold;
           }
         }
 
-        @media #{$desktop} {
-          &:hover {
+        &:hover {
+          .sub-menu {
+            display: block;
+            .menu-item {
+            }
           }
         }
-        a {
-          color: lighten(#2d2923,40%);
-          padding: 5px 5px 5px 5px;
+
+        .sub-menu {
           display: block;
-          @include transition(all 200ms linear);
-
-          @media #{$ipadPortrait} {
-            padding: 30px 10px 30px 10px;
-            font-family: $bevan;
-            font-size: 15px;
-            letter-spacing: 1px;
-            color: #efeee6;
+          position: relative;
+          width: 100%;
+          @media #{$bigMenu} {
+            display: none;
+            position: absolute;
+            top: 36px;
+            left: 0;
+            width: 100%;
           }
-
-          @media #{$ipadLandscape} {
-            padding: 30px 10px 30px 10px;
-
+          .menu-item {
+            a {
+              color: #2B1C0D;
+            }
+          }
+          #menu-item-254 {
+            margin-right: 110px;
           }
         }
       }
     }
   }
 }
+
+
 
 .hero {
   display: block;
@@ -381,7 +188,7 @@ a {
   position: relative;
   min-height: 480px;
   background: {
-    image: url(../images/hovedbilde.jpg);
+    image: url(../images/header-picture-3.jpg);
     repeat: no-repeat;
     size: auto 100%;
     position: center;
@@ -391,7 +198,7 @@ a {
     margin-top: 0;
     height: 1024px;
     background: {
-      size: 250%;
+      size: 150%;
       position: top center;
     }
   }
@@ -485,6 +292,7 @@ a {
       padding: 0;
       margin-bottom: 5px;
       color: white;
+      @include text-shadow(rgba(0,0,0,0.3) 0 0 30px);
       .header-highlight {
         
         color: white;
@@ -535,7 +343,19 @@ a {
   padding: 10px 0 10px 0;
 }
 
+.frontpage-articles {
+  background: {
+    position: bottom left;
+    repeat: no-repeat;
+    color: #eae0c6;
+  }
+  @media #{$otherThanPhone} {
+    background-image: url(../images/header-picture-5.jpg);
+  }
+}
+
 .articles {
+
   position: relative;
   width: 100%;
   padding-left: 10px;
@@ -554,12 +374,22 @@ a {
     display: block;
     width: 100%;
     padding: 0 20px 0 20px;
+    @media #{$otherThanPhone} {
+      width:  60%;
+      margin: 0 auto 0 234px;
+
+    }
+    @media #{$desktop} {
+      margin: 0 auto 0 auto;
+    }
     h2 {
+      padding: 20px 0 10px 0;
       font-size: 20px;
+      margin-top: 0;
       margin-bottom: 0;
       font-weight: normal;
       @media #{$otherThanPhone} {
-        font-size: 25px;  
+        font-size: 45px;  
       }
     }
     h3 {
@@ -567,7 +397,7 @@ a {
       margin-bottom: 0;
       font-weight: normal;
       @media #{$otherThanPhone} {
-        font-size: 23px;  
+        font-size: 40px;  
       }
     }
     p {
@@ -580,32 +410,11 @@ a {
         font-size: 18px;
       }
       @media #{$ipadPortrait} {
-        width: 50%;
+        width: 100%;
       }
 
 
     }
-
-    .post-image {
-
-      display: none;
-
-      @media #{$ipadPortrait} {
-        display: inline-block;
-        @include box-shadow(0 1px 1px 1px rgba(0,0,0,0.1));
-        background-color: white;
-        padding: 14px;
-        position: relative;
-        @include border-radius(4px);
-      }
-      float: right;
-      width: 40%;
-      height: 100%;
-
-      img {
-        width: 100%;
-      }
-    } 
   }
 
   .articles-list {
@@ -653,7 +462,7 @@ a {
 
 .post-image-article {
   width: 100%;
-  height: 310px;
+  height: 234px;
   background-attachment: fixed;
   position: absolute;
   top: 0;
@@ -663,7 +472,7 @@ a {
   background-size: 185% auto;
   background-repeat: no-repeat;
   @media #{$otherThanPhone} {
-    max-height: 300px;
+    height: 310px;
     background-size: 150%;
   }
   @media #{$desktop} {

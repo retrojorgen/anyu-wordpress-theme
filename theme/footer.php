@@ -1,8 +1,5 @@
 			<footer class="footer" role="contentinfo">
         <div class="footer-container">
-          <div class="header">
-            <div class="header-title">Kontakt</div>
-          </div>
   				<section class="logo footer-section">
             <h4>Kontaktinformasjon</h4>
             <p class="footer-paragraph">
