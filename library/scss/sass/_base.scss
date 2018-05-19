@@ -1,0 +1,31 @@
+// For making a keyframe animation
+@mixin keying($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+$otherThanPhone: "only screen and (min-width : 602px)";
+$ipadPortrait: "only screen and (min-width : 815px)";
+$ipadLandscape: "only screen and (min-width : 1000px)";
+$desktop: "only screen and (min-width : 1025px)";
+$megaDesktop: "only screen and (min-width : 1100px)";
+
+//@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+//@import url(http://fonts.googleapis.com/css?family=Oswald:400,700);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,500,800);
+
+$bevan : 'Raleway';
+
+div, li, ul,article, section, span, img,h1,h2,h3,h4,p,a {
+  @include box-sizing(border-box);
+}
