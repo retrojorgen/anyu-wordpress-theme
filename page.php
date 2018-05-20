@@ -3,9 +3,9 @@
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-						<div class="post-image-article" style="background-image: url(<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' )[0]; ?>)">
+						<header class="post-header" style="background-image: url(<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' )[0]; ?>)">
 							<h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
-						</div>
+						</header>
 
 						<section class="main-article">
 

@@ -28,6 +28,10 @@ body,html {
   overflow-x: hidden;
 }
 
+body {
+  padding-top: 84px;
+}
+
 a {
  color: #2d2923;
  font-family: $bevan;
@@ -209,7 +213,22 @@ a {
   }
 }
 
+.post-header {
+  padding: 80px 0;
+  background-size: cover;
+  h1 {
+    margin: 0;
+    padding: 0 20px;
+    font-size: 3em;
+    color: $highlight;
+    text-shadow: 0 0 4px $highlightDark;
+    text-align: center;
+  }
+}
+
 .entry-content {
+  max-width: 600px;
+  margin: 0 auto;
   h3 {
     font-size: 2em;
     padding: 0 20px;
@@ -227,12 +246,25 @@ a {
     text-align: left;
     img {
       margin-top: 20px;
+      
     }
   }
   img {
     box-shadow: 10px 10px 40px rgba(0,0,0,0.1);
     max-width: 100%;
     margin-bottom: 20px;
+    &.alignleft {
+      float: left;
+      margin-right: 20px;
+    }
+    &.alignright {
+      float: right;
+      margin-left: 20px;
+    }
+    &.aligncenter {
+      margin: 0 auto 20px auto;
+      display: block;
+    }
   }
   ul {
     list-style: disc outside none;
