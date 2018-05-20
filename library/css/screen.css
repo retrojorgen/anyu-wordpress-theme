@@ -205,7 +205,7 @@ div, li, ul, article, section, span, img, h1, h2, h3, h4, p, a {
 /* line 27, ../scss/sass/_hero.scss */
 .hero .hero-content .left-col img {
   max-height: 730px;
-  transform: translateX(-200px);
+  transform: translateX(-240px);
 }
 @media only screen and (min-width: 602px) {
   /* line 20, ../scss/sass/_hero.scss */
@@ -575,61 +575,86 @@ a {
 /* line 229, ../scss/sass/screen.scss */
 .entry-content {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 20px auto 20px auto;
 }
-/* line 232, ../scss/sass/screen.scss */
+@media only screen and (min-width: 602px) {
+  /* line 229, ../scss/sass/screen.scss */
+  .entry-content {
+    margin: 80px auto 80px auto;
+  }
+}
+/* line 235, ../scss/sass/screen.scss */
 .entry-content h3 {
   font-size: 2em;
   padding: 0 20px;
   text-align: center;
 }
-/* line 237, ../scss/sass/screen.scss */
+/* line 240, ../scss/sass/screen.scss */
 .entry-content h2 {
   font-size: 2.2em;
   padding: 0 20px;
   text-align: center;
 }
-/* line 242, ../scss/sass/screen.scss */
+/* line 245, ../scss/sass/screen.scss */
 .entry-content p {
   font-size: 1.2em;
   line-height: 1.6em;
   padding: 0 20px;
   text-align: left;
 }
-/* line 247, ../scss/sass/screen.scss */
-.entry-content p img {
-  margin-top: 20px;
-}
 /* line 252, ../scss/sass/screen.scss */
+.entry-content p img, .entry-content h3 img, .entry-content h2 img {
+  max-width: 100%;
+}
+@media only screen and (min-width: 602px) {
+  /* line 252, ../scss/sass/screen.scss */
+  .entry-content p img, .entry-content h3 img, .entry-content h2 img {
+    max-width: 400px;
+  }
+}
+/* line 259, ../scss/sass/screen.scss */
 .entry-content iframe {
   max-width: 100%;
 }
-/* line 255, ../scss/sass/screen.scss */
+/* line 262, ../scss/sass/screen.scss */
 .entry-content img {
   box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.1);
-  max-width: 100%;
-  margin-bottom: 20px;
-  max-width: 400px;
-}
-/* line 260, ../scss/sass/screen.scss */
-.entry-content img.alignleft {
-  float: left;
-  margin-right: -200px;
-}
-/* line 264, ../scss/sass/screen.scss */
-.entry-content img.alignright {
-  float: right;
-  margin-left: 20px;
-  margin-left: -200px;
-  transform: translateX(220px);
-}
-/* line 270, ../scss/sass/screen.scss */
-.entry-content img.aligncenter {
-  margin: 0 auto 20px auto;
+  max-width: calc(100% - 40px);
+  margin: 20px auto 20px auto;
   display: block;
-  max-width: 600px;
 }
-/* line 276, ../scss/sass/screen.scss */
+@media only screen and (min-width: 602px) {
+  /* line 262, ../scss/sass/screen.scss */
+  .entry-content img {
+    max-width: 400px;
+  }
+}
+@media only screen and (min-width: 602px) {
+  /* line 271, ../scss/sass/screen.scss */
+  .entry-content img.alignleft {
+    float: left;
+    margin-right: -200px;
+    transform: translateX(-220px);
+  }
+}
+@media only screen and (min-width: 602px) {
+  /* line 278, ../scss/sass/screen.scss */
+  .entry-content img.alignright {
+    float: right;
+    margin-left: 20px;
+    margin-left: -200px;
+    transform: translateX(220px);
+  }
+}
+@media only screen and (min-width: 602px) {
+  /* line 286, ../scss/sass/screen.scss */
+  .entry-content img.aligncenter {
+    margin: 0 auto 20px auto;
+    display: block;
+    max-width: 600px;
+  }
+}
+/* line 295, ../scss/sass/screen.scss */
 .entry-content ul {
   list-style: disc outside none;
   padding: 20px;
