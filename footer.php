@@ -1,40 +1,32 @@
 			<footer class="footer" role="contentinfo">
-        <div class="footer-container">
-  				<section class="logo footer-section">
-            <h4>Kontaktinformasjon</h4>
-            <p class="footer-paragraph">
-              Anyu klinikken AS, <br>Senter for helse og livsmestring<br><br>
+        <div class="footer-content-wrapper">
+          <div class="footer-info">
+              <h4>Kontaktinformasjon</h4>
+              <p class="footer-paragraph">
+                Anyu klinikken AS, <br>Senter for helse og livsmestring<br><br>
+                TLF: 406 70 885<br>
+                E-post: <a href="mailto:post@anyu.no">post@anyu.no</a><br> 
+                Nettside: www.anyu.no<br>
+              </p>
 
-              TLF: 406 70 885<br>
-              E-post: <a href="mailto:post@anyu.no">post@anyu.no</a><br> 
-              Nettside: www.anyu.no<br>
-              
-            </p>
-          </section>
+              <h4>Vår adresse</h4>
+              <p class="footer-paragraph">
+                Skårersletta 18,<br> 1473 Lørenskog<br>
+                5. etasje <br>
+              </p>
 
-          <section class="logo footer-section mobile-section">
-            <h4>Vår adresse</h4>
-            <p class="footer-paragraph">
-              Skårersletta 18,<br> 1473 Lørenskog<br>
-              5. etasje <br>
-            </p>
-          </section>
-          <section class="logo footer-section mobile-section">
-            <h4>Åpningstider</h4>
-            <p class="footer-paragraph">
-              Mandag 10.00-15.00<br>
-              Tirsdag 10.30-19.00<br>
-              Onsdag 10.30-19.30<br>
-              Torsdag 10.00-16.30<br>
-              Fredag 08.00-14.00<br>
-            </p>
-          </section>
+              <h4>Åpningstider</h4>
+              <p class="footer-paragraph">
+                Mandag 10.00-15.00<br>
+                Tirsdag 10.30-19.00<br>
+                Onsdag 10.30-19.30<br>
+                Torsdag 10.00-16.30<br>
+                Fredag 08.00-14.00<br>
+              </p>
+
+          </div>
+          <iframe class="footer-map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7997.479086395043!2d10.9543161!3d59.9260062!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe01aa52ded1eaadf!2sAnyu+Klinikken!5e0!3m2!1sen!2sno!4v1526804328635" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
-        <a href="https://www.google.no/maps/place/Sk%C3%A5rersletta+18,+1473+L%C3%B8renskog/" target="new_window">
-        <div class="kart">
-          
-        </div>
-        </a>
 			</footer>
 
 	</div>
@@ -42,6 +34,8 @@
 		<?php // all js scripts are loaded in library/bones.php ?>
 		<?php wp_footer(); ?>
     
+
+
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
