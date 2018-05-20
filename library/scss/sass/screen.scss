@@ -188,7 +188,7 @@ a {
     flex-direction: column;
     @media #{$otherThanPhone} {
       flex-direction: row;
-      padding: 40px 0 40px 0;
+      padding: 40px 40px 40px 40px;
     }
     .footer-info {
       padding-right: 0;
@@ -249,21 +249,28 @@ a {
       
     }
   }
+  iframe {
+    max-width: 100%;
+  }
   img {
     box-shadow: 10px 10px 40px rgba(0,0,0,0.1);
     max-width: 100%;
     margin-bottom: 20px;
+    max-width: 400px;
     &.alignleft {
       float: left;
-      margin-right: 20px;
+      margin-right: -200px;
     }
     &.alignright {
       float: right;
       margin-left: 20px;
+      margin-left: -200px;
+      transform: translateX(220px);
     }
     &.aligncenter {
       margin: 0 auto 20px auto;
       display: block;
+      max-width: 600px;
     }
   }
   ul {

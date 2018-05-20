@@ -5,5 +5,7 @@
 			$(event.target).toggleClass("active");
 			$("#menu-main-menu").toggleClass("active");
 		});
+
+		$("img").removeAttr("height");
 	});
 })(jQuery);
