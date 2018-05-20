@@ -73,7 +73,7 @@
     <header class="main-header inverse<?php if ( !is_front_page() ) echo 'inverse'; ?>" role="banner">
 		<nav class="main-navigation inverse<?php if ( !is_front_page() ) echo 'inverse'; ?>" role="navigation">
 			<a href="<?php echo home_url(); ?>" class="anyu-logo"><img src="<?php echo get_template_directory_uri(); ?>/library/images/anyu-logo-brown.svg"></a>
-			<button class="mobile-menu-toggle <?php if ( !is_front_page() ) echo 'inverse'; ?>"></button>
+			<button class="mobile-menu-toggle"><span class="hamburger"></span></button>
 			<?php bones_main_nav(); ?>
 			<?php //get_search_form(); ?>
 		</nav>

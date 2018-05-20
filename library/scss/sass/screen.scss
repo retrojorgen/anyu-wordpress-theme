@@ -108,6 +108,9 @@ a {
     display: flex;
     align-items: center;
     position: relative;
+    @media #{$otherThanPhone} {
+      width: auto;
+    }
     .left-col {
       overflow: hidden;
       max-height: 100%;
@@ -117,10 +120,13 @@ a {
       width: 100%;
       img {
         max-height: 730px;
-        transform: translateX(-200px)
+        transform: translateX(-200px);
       }
       @media #{$otherThanPhone} {
         left: 0;
+        img {
+          transform: translateX(0);
+        }
       }
     }
     .right-col {
@@ -136,7 +142,6 @@ a {
         width: 500px;
         flex: 0 0 500px;
         margin-left: 500px;
-        flex: 0 0 100%;
         align-items: center;
       }
     }
@@ -200,10 +205,19 @@ a {
 
 .section {
   max-width: $contentSectionWidth;
-  margin: 0 auto;
-  display: flex;
-  margin-top: 80px;
-  margin-bottom: 80px;
+  
+  display: block;
+  padding: 20px;
+  margin-top: 40px;
+    margin-bottom: 40px;
+  @media #{$otherThanPhone} {
+    max-width: $contentSectionWidth;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    display: flex;
+    padding: 0;
+  }
   &.video {
     .info-section {
       h3 {
@@ -218,37 +232,63 @@ a {
   .info-section {
     padding-right: 60px;
     h3 {
-      font-size: 3em;
+      font-size: 2em;
       margin: 0;
+      @media #{$otherThanPhone} {
+        font-size: 3em;
+      }
     }
     p {
-      font-size: 1.7em;
+      font-size: 1.2em;
       color: #444;
       line-height: 1.5em;
+      @media #{$otherThanPhone} {
+        font-size: 1.4em;
+        line-height: 1.7em;
+      }
     }
   }
   .illustration-section {
+    
     img {
-      width: 400px;
+      width: 100%;
       display: block;
       box-shadow: 10px 10px 40px rgba(0,0,0,0.1);
       border-radius: 2px;
+      @media #{$otherThanPhone} {
+        width: 400px;
+      }
     }
     iframe {
       box-shadow: 10px 10px 40px rgba(0,0,0,0.1);
       border-radius: 2px;
+      max-width: 100%;
+      width: 100%;
+      @media #{$otherThanPhone} {
+        width: 400px;
+        max-width: none;
+      }
     }
   }
 }
 
 .photo-section {
   position: relative;
-  height: 600px;
+  height: auto;
   overflow: hidden;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
+  flex-direction: column;
+  padding: 20px;
   color: $highlight;
+  background-color: #444;
+  @media #{$otherThanPhone} {
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0;
+    height: 600px;
+  }
   a {
     color: $highlight;
     text-decoration: underline;
@@ -257,27 +297,45 @@ a {
     justify-content: flex-start;
     .info-section {
       padding-right: 0;
-      padding-left: 60px;
+      padding-left: 0;
+      @media #{$otherThanPhone} {
+        padding-left: 60px;
+      }
     }
   }
   .photo-background {
     max-width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
+    position: relative;
+    @media #{$otherThanPhone} {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
   }
   .info-section {
-    width: 600px;
+    
     position: relative;
-    padding-right: 60px;
+    width: 100%;
+    
+    @media #{$otherThanPhone} {
+      width: 600px;
+      padding-right: 60px;
+    }
     h3 {
-      font-size: 3em;
+      font-size: 2em;
       text-shadow: 0 0 10px rgba($highlightDark, 0.3);
+      @media #{$otherThanPhone} {
+        font-size: 3em;
+      }
     }
     p {
-      font-size: 1.4em;
+      font-size: 1.2em;
       line-height: 1.6em;
       text-shadow: 0 0 10px rgba($highlightDark, 0.3);
+      @media #{$otherThanPhone} {
+        
+        font-size: 1.4em;
+      }
     }
   }
 }
@@ -285,13 +343,23 @@ a {
 .footer {
   background-color: $highlight;
   .footer-content-wrapper {
-    padding: 40px 0 40px 0;
+    padding: 40px 20px 40px 20px;
     margin: 0 auto;
     max-width: $maxDesktopWidth;
     display: flex;
     align-items: stretch;
+    flex-direction: column;
+    @media #{$otherThanPhone} {
+      flex-direction: row;
+      padding: 40px 0 40px 0;
+    }
     .footer-info {
-      padding-right: 60px;
+      padding-right: 0;
+      padding-bottom: 20px;
+      @media #{$otherThanPhone} {
+        padding-right: 60px;
+        padding-bottom: 0;
+      }
       h4 {
         margin-bottom: 4px;
       }
@@ -300,6 +368,10 @@ a {
       flex: 1;
       background-color: $highlightDark;
       box-shadow: 10px 10px 40px rgba(0,0,0,0.1);
+      width: 100%;
+      @media #{$otherThanPhone} {
+        width: auto;
+      }
     }
   }
 }
