@@ -12,7 +12,10 @@
       margin: 0 auto;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 60px;
+      padding: 10px 20px;
+      @media #{$otherThanPhone} {
+        padding: 10px 60px;
+      }
     }
   }
   
@@ -23,18 +26,48 @@
   }
   
   .top-nav {
+    position: fixed;
+    top: 83px;
+    height: 0;
+    width: 100%;
+    margin: 0;
     list-style: none;
+    left: 0;
+    background-color: white;
     padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    overflow: hidden;
+    &.active {
+        height: auto;
+    }
+    // hest
+    @media #{$otherThanPhone} {
+        position: relative;
+        list-style: none;
+        padding: 0;
+        width: auto;
+        height: auto;
+        top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
     .menu-item {
       a {
         display: block;
-        padding: 10px 14px;
-        font-size: 0.8em;
+        
         letter-spacing: 1px;
         position: relative;
+        padding: 20px 24px;
+        text-align: center;
+        font-size: 1.2em;
+        letter-spacing: 1px;
+        position: relative;
+        border-bottom: 1px solid #efefef;
+        @media #{$otherThanPhone} {
+            padding: 10px 14px;
+            font-size: 0.8em;
+            border-bottom: 0;
+        }
         &:after {
           content: "";
           position: absolute;
@@ -54,7 +87,52 @@
       }
     }
   }
+
+  
   
   .mobile-menu-toggle {
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    padding: 20px 16px;
+    cursor: pointer;  
+    .hamburger {
+        width: 100%;
+        height: 2px;
+        background-color: #222;
+        position: relative;
+        &:before, &:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #222;
+            left: 0;
+            top: 0;
+            transition: all 0.1s ease-in-out;
+        }
+        &:before {
+            transform: translateY(-6px);
+        }
+        &:after {
+            transform: translateY(6px);
+        }
+        
+    }
+    &.active {
+        .hamburger {
+            background-color: transparent;
+            &:before {
+                transform: translateY(0) rotate(-45deg);
+            }
+            &:after {
+                transform: translateY(0) rotate(45deg);
+            }
+        }
+    }
+    @media #{$otherThanPhone} {
+        display: none;    
+    }
   }

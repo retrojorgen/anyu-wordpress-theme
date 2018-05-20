@@ -1,0 +1,109 @@
+.hero {
+    width: 100%;
+    height: 700px;
+    background-size: cover;
+    background-position: top center;
+    background-color: $highlight;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding-top: 80px;
+    .hero-content {
+      max-width: $maxDesktopWidth;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+      @media #{$otherThanPhone} {
+        width: auto;
+      }
+      .left-col {
+        overflow: hidden;
+        max-height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        img {
+          max-height: 730px;
+          transform: translateX(-200px);
+        }
+        @media #{$otherThanPhone} {
+          left: 0;
+          img {
+            transform: translateX(0);
+          }
+        }
+      }
+      .right-col {
+        position: relative;
+        width: 100%;
+        flex: 0 0 calc(100% - 20px);
+        margin-left: 0;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        @media #{$otherThanPhone} {
+          left: 0;
+          width: 500px;
+          flex: 0 0 500px;
+          margin-left: 500px;
+          align-items: center;
+        }
+      }
+      .action-buttons {
+        padding: 20px;
+        border-radius: 4px;
+        background-color: #ffffff7a;
+        margin-bottom: 20px;
+        @media #{$otherThanPhone} {
+          padding: 0;
+          background-color: transparent;
+          margin-bottom: 0;
+        }
+      }
+    }
+  
+    h1 {
+      font-size: 2em;
+      @media #{$otherThanPhone} {
+        font-size: 4em;
+      }
+    }
+    .facebook-like {
+      position: relative;
+      padding: 20px 30px;
+      margin-bottom: 20px;
+      width: 100%;
+      display: block;
+      border-radius: 4px;
+      background-color: #3b5998;
+      color: white;
+      text-align: center;
+      box-shadow: 10px 10px 40px rgba(0,0,0,0.1);
+      &:hover {
+        background-color: lighten(#3b5998, 10%);
+      }
+    }
+  
+    .hero-online-booking {
+      background-color: $highlightDark;
+      display: block;
+      padding: 20px 30px;
+      width: 100%;
+      border-radius: 4px;
+      color: $highlight;
+      margin-bottom: 10px;
+      text-align: center;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+      &:hover {
+        background-color: lighten($highlightDark, 4%);
+      }
+    }
+    .call-us {
+      display: block;
+      padding: 20px 30px;
+      width: 100%;
+      text-align: center
+    }
+  }
